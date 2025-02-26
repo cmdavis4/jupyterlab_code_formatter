@@ -342,7 +342,7 @@ export class JupyterlabFileEditorCodeFormatter extends JupyterlabCodeFormatter {
     const formattersToUse =
       formatter !== undefined ? [formatter] : defaultFormatters;
 
-    if (formattersToUse.length === 0) {
+    if ((formattersToUse.length === 0) && !(config.suppressFormatterErrors ?? false)) {
       await showErrorMessage(
         'Jupyterlab Code Formatter Error',
         'Unable to find default formatters to use, please file an issue on GitHub.'
